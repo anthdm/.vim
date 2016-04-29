@@ -22,9 +22,9 @@ call plug#end()
 let g:zenburn_disable_label_underline = 1
 
 syntax enable
-"set background=dark
+set background=dark
 
-colorscheme molokai
+colorscheme solarized
 let g:molokai_original = 1
 
 set tabstop=4

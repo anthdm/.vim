@@ -1,9 +1,2 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =7
-let g:netrw_dirhist_1='/Users/anthony/code/insanity-engine/Insanity'
-let g:netrw_dirhist_2='/Users/anthony/code/little-miss-insanity'
-let g:netrw_dirhist_3='/Users/anthony/code/insanity-engine/Insanity'
-let g:netrw_dirhist_4='/Users/anthony/gopath/src/bitbucket.org/be-mobile/toll-lvl-transferer'
-let g:netrw_dirhist_5='/Users/anthony/code/insanity-engine'
-let g:netrw_dirhist_6='/Users/anthony/Documents/code/little-miss-insanity'
-let g:netrw_dirhist_7='/Users/anthony/code/insanity-engine'
+let g:netrw_dirhist_cnt =0
