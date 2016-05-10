@@ -1,2 +1,10 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =0
+let g:netrw_dirhist_cnt =8
+let g:netrw_dirhist_1='/Users/anthony/gopath/src/bitbucket.org/be-mobile/toll-aggregator'
+let g:netrw_dirhist_2='/Users/anthony/code/insanity-engine/lmi'
+let g:netrw_dirhist_3='/Users/anthony/Documents/cube-fever/cube-fever.xcodeproj'
+let g:netrw_dirhist_4='/Users/anthony/gopath/src/bitbucket.org/be-mobile/toll-aggregator'
+let g:netrw_dirhist_5='/Users/anthony/cube-fever'
+let g:netrw_dirhist_6='/Users/anthony/Desktop/cube-fever/cube-fever'
+let g:netrw_dirhist_7='/Users/anthony/Desktop/cube-fever'
+let g:netrw_dirhist_8='/Users/anthony/gopath/src/bitbucket.org/be-mobile/toll-geo-scheduler'

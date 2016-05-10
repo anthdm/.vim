@@ -15,6 +15,7 @@ Plug 'jnurmine/Zenburn'
 Plug 'flazz/vim-colorschemes'
 Plug 'suan/vim-instant-markdown'
 Plug 'ciaranm/inkpot'
+"Plug 'Valloric/YouCompleteMe'
 
 call plug#end()
 
@@ -24,7 +25,7 @@ let g:zenburn_disable_label_underline = 1
 syntax enable
 set background=dark
 
-colorscheme solarized
+colorscheme gruvbox
 let g:molokai_original = 1
 
 set tabstop=4
