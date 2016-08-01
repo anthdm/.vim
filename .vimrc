@@ -15,7 +15,7 @@ Plug 'jnurmine/Zenburn'
 Plug 'flazz/vim-colorschemes'
 Plug 'suan/vim-instant-markdown'
 Plug 'ciaranm/inkpot'
-"Plug 'Valloric/YouCompleteMe'
+Plug 'Valloric/YouCompleteMe'
 
 call plug#end()
 
@@ -25,11 +25,14 @@ let g:zenburn_disable_label_underline = 1
 syntax enable
 set background=dark
 
-colorscheme gruvbox
+colorscheme molokai
 let g:molokai_original = 1
 
+" Use 4 spaces for each tab indentation.
 set tabstop=4
 set shiftwidth=4
+set expandtab
+
 set noswapfile
 set timeout timeoutlen=5000 ttimeoutlen=100
 set hlsearch
@@ -62,6 +65,8 @@ nmap <silent> <leader>h :wincmd h<CR>
 nmap <silent> <leader>l :wincmd l<CR>
 nmap <silent> mm :noh<CR>
 nmap <silent> <leader>v :vsp<CR>
+
+let g:go_fmt_command = "goimports"
 
 " macvim configuration
 set guioptions-=r
