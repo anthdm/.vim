@@ -2,31 +2,18 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'fatih/vim-go'
-Plug 'nanotech/jellybeans.vim'
-Plug 'easysid/mod8.vim'
-Plug 'vim-scripts/fu'
-Plug 'chriskempson/base16-vim'
-Plug 'fugalh/desert.vim'
 Plug 'vim-airline/vim-airline'
-Plug 'vim-scripts/Wombat'
-Plug 'w0ng/vim-hybrid'
-Plug 'vyshane/vydark-vim-color'
-Plug 'jnurmine/Zenburn'
-Plug 'flazz/vim-colorschemes'
 Plug 'suan/vim-instant-markdown'
-Plug 'ciaranm/inkpot'
-Plug 'Valloric/YouCompleteMe'
+Plug 'scrooloose/nerdtree'
+Plug 'altercation/vim-colors-solarized'
+Plug 'posva/vim-vue'
+Plug 'pangloss/vim-javascript'
 
 call plug#end()
 
-" zenburn colorscheme configuration
-let g:zenburn_disable_label_underline = 1
-
 syntax enable
 set background=dark
-
-colorscheme molokai
-let g:molokai_original = 1
+colorscheme solarized 
 
 " Use 4 spaces for each tab indentation.
 set tabstop=4
@@ -45,41 +32,45 @@ imap jj <Esc>
 
 let mapleader="\<SPACE>"
 
+" Toggle NerdTree
+nmap <leader>k :NERDTreeToggle<CR>
+let g:NERDTreeWinPos = "right"
+
 " ctrlp configuration
-let g:ctrlp_map = '<leader>e'
+let g:ctrlp_map = '<leader>p'
 let g:ctrlp_cmd = ':CtrlP'
 let g:ctrlp_working_path_mode = 'ra'
-let g:ctrlp_max_files=50
+let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git\|bower_components\|vendor'
 
 " airline configuration
 let g:airline#extensions#tabline#enabled = 1
 set laststatus=2
 
-" prev and next buffer
-nmap <leader>} :bnext<CR>
-nmap <leader>{ :bprevious<CR>
-" close buffer
-nmap <leader>w :bd<CR>
-
 nmap <silent> <leader>h :wincmd h<CR>
 nmap <silent> <leader>l :wincmd l<CR>
+" clear search highlights
 nmap <silent> mm :noh<CR>
+" split screen
 nmap <silent> <leader>v :vsp<CR>
 
-let g:go_fmt_command = "goimports"
-
-" macvim configuration
+" settings for macvim or other vim GUI's.
 set guioptions-=r
 set guioptions-=L
 set lines=999 columns=9999
 set antialias
-set linespace=2
+set linespace=4
 " set the cursor to block even in insert mode.
 set guicursor+=i:block-cursor
+set guicursor+=a:blinkon0
+set guifont=Menlo\ Regular:h12
 
 " Personal editor commands
 :command -nargs=1 Ee :tabe <args>
 
+" golang 
+let g:go_fmt_command="goimports"
+
+" Search and replace (:Replace origin dest)
 fun! s:sub(search, replace)
     execute ':%s/' . a:search . '/' . a:replace . '/gc'
 endfun
