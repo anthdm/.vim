@@ -53,6 +53,7 @@ nmap <silent> mm :noh<CR>
 " split screen
 nmap <silent> <leader>v :vsp<CR>
 
+if has('gui_running')
 " settings for macvim or other vim GUI's.
 set guioptions-=r
 set guioptions-=L
@@ -63,6 +64,7 @@ set linespace=4
 set guicursor+=i:block-cursor
 set guicursor+=a:blinkon0
 set guifont=Menlo\ Regular:h12
+endif
 
 " Personal editor commands
 :command -nargs=1 Ee :tabe <args>
