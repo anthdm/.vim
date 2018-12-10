@@ -28,7 +28,6 @@ call plug#end()
 " COLOR SCHEME AND APPERANCE 
 """"""""""""""""""""""""""""
 syntax enable
-"colorscheme base16-atelier-dune
 colorscheme gruvbox
 set background=dark
 set number
@@ -65,6 +64,8 @@ let mapleader="\<SPACE>"
 nmap <silent> <leader>v :vsp<CR>
 nmap <silent> <leader>h :wincmd h<CR>
 nmap <silent> <leader>l :wincmd l<CR>
+nmap <silent> <leader>j :wincmd j<CR>
+nmap <silent> <leader>k :wincmd k<CR>
 nmap <silent> mm :noh<CR>
 
 """""
@@ -75,7 +76,7 @@ nnoremap <Leader>f :Ack!<Space>
 """"""""""
 " NERDTREE
 """"""""""
-nmap <leader>k :NERDTreeToggle<CR>
+nmap <leader>b :NERDTreeToggle<CR>
 let g:NERDTreeWinPos = "right"
 
 """""""
@@ -90,11 +91,6 @@ let g:ctrlp_working_path_mode = 0
 """""""""
 let g:airline#extensions#tabline#enabled = 1
 set laststatus=2
-
-"""""""""
-" DEOPLETE
-"""""""""
-let g:deoplete#enable_at_startup = 1
 
 """""""""""""
 " GUI OPTIONS 
@@ -120,6 +116,9 @@ let g:go_fmt_command="goimports"
 let g:mix_format_on_save = 1
 " RUST
 let g:rustfmt_autosave = 1
+" PYTHON
+let g:autopep8_on_save = 1
+let g:autopep8_disable_show_diff=1
 
 """"""""""""""""
 " CUSTOM SCRIPTS
