@@ -10,7 +10,7 @@ Plug 'posva/vim-vue'
 Plug 'pangloss/vim-javascript'
 Plug 'morhetz/gruvbox'
 Plug 'vim-scripts/ibmedit.vim'
-Plug 'tpope/vimeqfugitive'
+Plug 'tpope/vim-fugitive'
 Plug 'fugalh/desert.vim'
 Plug 'albertorestifo/vim-playground-colors'
 Plug 'chriskempson/base16-vim'
@@ -21,7 +21,6 @@ Plug 'tomlion/vim-solidity'
 Plug 'mhinz/vim-mix-format'
 Plug 'vim-syntastic/syntastic.git'
 Plug 'mileszs/ack.vim'
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 
 call plug#end()
 
@@ -29,9 +28,11 @@ call plug#end()
 " COLOR SCHEME AND APPERANCE 
 """"""""""""""""""""""""""""
 syntax enable
-colorscheme base16-atelier-dune
+"colorscheme base16-atelier-dune
+colorscheme gruvbox
 set background=dark
 set number
+set guicursor+=i:block-cursor " Always use blockcursor.
 
 """"""""""""""""""
 " GENERAL SETTINGS 
@@ -126,7 +127,7 @@ let g:rustfmt_autosave = 1
 " Set the current indentation :Ident <number>
 :command -nargs=1 Ee :ident <args>
 
-fun! s:ident(indent)
+fun! s:indent(indent)
     execute ':set tabstop=' . a:indent
     execute ':set shiftwidth=' . a:indent
 endfun
@@ -137,4 +138,4 @@ fun! s:sub(search, replace)
 endfun
 
 command! -nargs=+ Replace call s:sub(<f-args>)
-command! -nargs=+ Ident call s:ident(<f-args>)
+command! -nargs=+ Indent call s:indent(<f-args>)
