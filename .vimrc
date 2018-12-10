@@ -55,7 +55,6 @@ set colorcolumn=80
 """""""""""""""
 let loaded_matchparen = 1 " avoid loading the param pluging
 
-
 """"""""""""""
 " KEY BINDINGS 
 """"""""""""""
@@ -85,6 +84,7 @@ let g:NERDTreeWinPos = "right"
 let g:ctrlp_map = '<leader>p'
 let g:ctrlp_cmd = ':CtrlP'
 let g:ctrlp_working_path_mode = 0
+let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git\|env'
 
 """""""""
 " AIRLINE
@@ -134,7 +134,7 @@ endfun
 " Search and replace :Replace <origin> <dest>
 fun! s:sub(search, replace)
     execute ':%s/' . a:search . '/' . a:replace . '/gc'
-endfun
+endfuN
 
 command! -nargs=+ Replace call s:sub(<f-args>)
 command! -nargs=+ Indent call s:indent(<f-args>)
