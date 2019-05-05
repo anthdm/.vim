@@ -1,5 +1,12 @@
 call plug#begin('~/.vim/plugged')
 
+Plug 'prettier/vim-prettier', {
+  \ 'do': 'yarn install',
+  \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'yaml', 'html'] }
+Plug 'Yggdroot/indentLine'
+Plug 'airblade/vim-gitgutter'
+" uncomment the line below to enable code completion.
+" Plug 'neoclide/coc.nvim', {'tag': '*', 'do': './install.sh'}
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'fatih/vim-go'
 Plug 'vim-airline/vim-airline'
@@ -21,14 +28,16 @@ Plug 'tomlion/vim-solidity'
 Plug 'mhinz/vim-mix-format'
 Plug 'vim-syntastic/syntastic.git'
 Plug 'mileszs/ack.vim'
-
+Plug 'jnurmine/Zenburn'
+Plug 'leafgarland/typescript-vim'
 call plug#end()
 
 """"""""""""""""""""""""""""
 " COLOR SCHEME AND APPERANCE 
 """"""""""""""""""""""""""""
 syntax enable
-colorscheme gruvbox
+set termguicolors
+colorschem gruvbox
 set background=dark
 set number
 set guicursor+=i:block-cursor " Always use blockcursor.
@@ -36,6 +45,7 @@ set guicursor+=i:block-cursor " Always use blockcursor.
 """"""""""""""""""
 " GENERAL SETTINGS 
 """"""""""""""""""
+set bs=2
 set tabstop=4
 set shiftwidth=4
 set expandtab
@@ -78,6 +88,15 @@ nnoremap <Leader>f :Ack!<Space>
 nmap <leader>b :NERDTreeToggle<CR>
 let g:NERDTreeWinPos = "right"
 
+""""""""""
+" Coc completion engine
+""""""""""
+" use Tab to navigate
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+" commit completion
+inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+
 """""""
 " CTRLP
 """""""
@@ -108,6 +127,13 @@ set guifont=Menlo\ Regular:h12
 endif
 
 """"""""""""""""""""""""
+" PRETTIER
+""""""""""""""""""""""""
+let g:prettier#autoformat = 0
+autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html PrettierAsync
+let g:prettier#exec_cmd_async = 1
+
+""""""""""""""""""""""""
 " LANGUAGE CONFIGURATION
 """"""""""""""""""""""""
 " GOLANG
@@ -134,7 +160,7 @@ endfun
 " Search and replace :Replace <origin> <dest>
 fun! s:sub(search, replace)
     execute ':%s/' . a:search . '/' . a:replace . '/gc'
-endfuN
+endfun
 
 command! -nargs=+ Replace call s:sub(<f-args>)
 command! -nargs=+ Indent call s:indent(<f-args>)
