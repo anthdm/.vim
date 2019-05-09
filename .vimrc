@@ -37,7 +37,7 @@ call plug#end()
 """"""""""""""""""""""""""""
 syntax enable
 set termguicolors
-colorschem gruvbox
+colorscheme base16-atelier-cave
 set background=dark
 set number
 set guicursor+=i:block-cursor " Always use blockcursor.
@@ -59,6 +59,7 @@ set smartindent
 set autoindent
 set hidden
 set colorcolumn=80
+set splitbelow " split panes below instead above.
 
 """""""""""""""
 " OPTIMIZATIONS
@@ -75,7 +76,7 @@ nmap <silent> <leader>h :wincmd h<CR>
 nmap <silent> <leader>l :wincmd l<CR>
 nmap <silent> <leader>j :wincmd j<CR>
 nmap <silent> <leader>k :wincmd k<CR>
-nmap <silent> mm :noh<CR>
+nmap <silent> mm :noh<CR> " clear highlight selection
 
 """""
 " ACK
@@ -111,21 +112,6 @@ let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git\|env'
 let g:airline#extensions#tabline#enabled = 1
 set laststatus=2
 
-"""""""""""""
-" GUI OPTIONS 
-"""""""""""""
-if has('gui_running')
-set guicursor+=i:block-cursor " Always use blockcursor.
-set linespace=4
-set antialias
-set guioptions-=r
-set guioptions-=L
-set lines=999 columns=9999
-" set the cursor to block even in insert mode.
-set guicursor+=a:blinkon0
-set guifont=Menlo\ Regular:h12
-endif
-
 """"""""""""""""""""""""
 " PRETTIER
 """"""""""""""""""""""""
@@ -149,7 +135,8 @@ let g:autopep8_disable_show_diff=1
 """"""""""""""""
 " CUSTOM SCRIPTS
 """"""""""""""""
-" Set the current indentation :Ident <number>
+" Set the current indentation :Indent <number>
+" E.G <:Indent 2> will set the indentation to 2 spaces.
 :command -nargs=1 Ee :ident <args>
 
 fun! s:indent(indent)
@@ -158,6 +145,7 @@ fun! s:indent(indent)
 endfun
 
 " Search and replace :Replace <origin> <dest>
+" E.G <:Replace foo bar> will replace occurences of foo with bar.
 fun! s:sub(search, replace)
     execute ':%s/' . a:search . '/' . a:replace . '/gc'
 endfun
