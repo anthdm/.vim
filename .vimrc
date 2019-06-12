@@ -5,8 +5,8 @@ Plug 'prettier/vim-prettier', {
   \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'yaml', 'html'] }
 Plug 'Yggdroot/indentLine'
 Plug 'airblade/vim-gitgutter'
-" uncomment the line below to enable code completion.
-" Plug 'neoclide/coc.nvim', {'tag': '*', 'do': './install.sh'}
+Plug 'w0rp/ale'
+Plug 'neoclide/coc.nvim', {'tag': '*', 'do': './install.sh'}
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'fatih/vim-go'
 Plug 'vim-airline/vim-airline'
@@ -30,6 +30,7 @@ Plug 'vim-syntastic/syntastic.git'
 Plug 'mileszs/ack.vim'
 Plug 'jnurmine/Zenburn'
 Plug 'leafgarland/typescript-vim'
+Plug 'crusoexia/vim-monokai'
 call plug#end()
 
 """"""""""""""""""""""""""""
@@ -116,7 +117,7 @@ set laststatus=2
 " PRETTIER
 """"""""""""""""""""""""
 let g:prettier#autoformat = 0
-autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html PrettierAsync
+autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.scss,*.json,*.md,*yaml PrettierAsync
 let g:prettier#exec_cmd_async = 1
 
 """"""""""""""""""""""""
